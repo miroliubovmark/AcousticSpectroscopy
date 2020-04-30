@@ -1,3 +1,14 @@
+"""
+    This file provides simultaneous recording and playback, 
+    signal generation, reading & writing wav files and auxiliary text files.
+    
+    Reading and writing files algorithm is based on linux file system. 
+    Some dirrectories must exist before runing the code.
+    In order to run it on Windows OS parameters in some functions must be
+    changed.
+""""
+
+
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.io import wavfile
@@ -91,7 +102,7 @@ class CSound:
         plt.savefig("plot.png")
 
     def saveAsWavFile(self, filename=None, parameters=None):
-        GlobalPath = '/home/mark/PycharmProjects/Audio/Recordings/'
+        GlobalPath = '/Recordings/'
         LocalDirName = str(datetime.date.today())
         GlobalDirName = GlobalPath + LocalDirName + '/'
 
@@ -121,7 +132,7 @@ class CSound:
 
             newFileIndex = GlobalDirName + str(FileIndex + 1) + '.wav'
 
-            Name_Last = '/home/mark/PycharmProjects/Audio/Recordings/last/last'
+            Name_Last = '/Recordings/last/last'
 
             print(newFileIndex)
             self.save(npRecording, self.InputSampleRate, newFileIndex)
